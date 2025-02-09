@@ -2,9 +2,9 @@ import TodoItem from "../components/TodoItem";
 
 const Todos = (props) => {
   return (
-    <div className="my-5 py-4">
-      <h1 className="text-center py-1 my-2 text-xl font-semibold">
-        This is Todos List
+    <div className="py-4">
+      <h1 className="text-center py-1 text-xl font-semibold">
+        TODO List
       </h1>
       <div className="grid grid-cols-5 gap-3 bg-slate-100 my-2 py-5 px-3">
         {/* <TodoItem todo={props.todos[0]} /> */}
@@ -22,3 +22,4 @@ const Todos = (props) => {
   );
 };
 export default Todos;
+

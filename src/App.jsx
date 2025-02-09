@@ -62,7 +62,11 @@ export default function App() {
               </>
             }
           />
-          <Route exact path="/about" element={<About /> } />
+          <Route
+            exact
+            path="/todo"
+            element={<About todos={todos} onDelete={deleteTodo} />}
+          />
         </Routes>
         <Footer /> {/* This should always return  */}
       </div>

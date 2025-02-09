@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import logo from "../static/images/logo.png";
 
 export default function Header({ title = "Default Title", searchBar = false }) {
   //   console.log("Title Prop:", title); // Debugging
@@ -9,7 +10,11 @@ export default function Header({ title = "Default Title", searchBar = false }) {
     <>
       <nav className="bg-slate-100">
         <div className="flex justify-around items-center">
-          <Link to="/" className="text-xl tracking-wider py-1.5 px-4">
+          <Link
+            to="/"
+            className="text-xl flex justify-center items-center gap-2 tracking-wider py-1.5 px-4"
+          >
+            <img src={logo} className="w-8" alt="Img Logo" />
             {title} {/* No need to use props.title now */}
           </Link>
           <ul className="flex justify-around items-center gap-4 font-semibold">
@@ -17,7 +22,7 @@ export default function Header({ title = "Default Title", searchBar = false }) {
               <Link to="/">Home</Link>
             </li>
             <li className="hover:text-teal-600 duration-100">
-              <Link to="/about">About</Link>
+              <Link to="/todo">TODO List</Link>
             </li>
           </ul>
           <div className="flex justify-between items-center gap-6 m-1">
