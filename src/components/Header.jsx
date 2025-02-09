@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function Header({ title = "Default Title", searchBar = false }) {
   //   console.log("Title Prop:", title); // Debugging
@@ -8,15 +9,15 @@ export default function Header({ title = "Default Title", searchBar = false }) {
     <>
       <nav className="bg-slate-100">
         <div className="flex justify-around items-center">
-          <a className="text-xl tracking-wider py-1.5 px-4" href="/">
+          <Link to="/" className="text-xl tracking-wider py-1.5 px-4">
             {title} {/* No need to use props.title now */}
-          </a>
+          </Link>
           <ul className="flex justify-around items-center gap-4 font-semibold">
             <li className="hover:text-teal-600 duration-100">
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li className="hover:text-teal-600 duration-100">
-              <a href="/about">About</a>
+              <Link to="/about">About</Link>
             </li>
           </ul>
           <div className="flex justify-between items-center gap-6 m-1">
@@ -26,7 +27,7 @@ export default function Header({ title = "Default Title", searchBar = false }) {
                 role="search"
               >
                 <input
-                  className="my-1 px-2 py-1.5 border border-teal-800"
+                  className="my-1 px-2 py-1.5 border border-teal-800 active:border-teal-800 bg-white shadow-sm"
                   type="search"
                   placeholder="Search Anything"
                   aria-label="Search"

@@ -2,13 +2,15 @@ import Header from "./components/Header";
 import Todos from "./components/Todos";
 import Footer from "./components/Footer";
 import React, { useState, useEffect } from "react";
+import About from "./components/About";
 import AddToDo from "./components/AddToDo";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
   const [todos, setTodos] = useState(() => {
     try {
-      let savedTodos = localStorage.getItem("todos"); 
-      return savedTodos ? JSON.parse(savedTodos) : []; 
+      let savedTodos = localStorage.getItem("todos");
+      return savedTodos ? JSON.parse(savedTodos) : [];
     } catch (error) {
       console.error("Error parsing localStorage:", error);
       return []; //
@@ -16,12 +18,12 @@ export default function App() {
   });
 
   useEffect(() => {
-    console.log("Updating local storage : ", todos);
+    // console.log("Updating local storage : ", todos);   // Testing
     localStorage.setItem("todos", JSON.stringify(todos)); //STORAGE DATA IN THE BROWSER ELSE IT WILL BE REMOVED WITH RELOAD
   }, [todos]);
 
   const deleteTodo = (todo) => {
-    console.log("Deleteing Todo : ", todo);
+    // console.log("Deleteing Todo : ", todo);  // Testing
     setTodos((prevTodos) => prevTodos.filter((e) => e !== todo));
     // localStorage.setItem("todos", JSON.stringify(todos)); // AFTER DELETE ITEM AGAIN STORE CURRENT TODOS IN THE BROWSER
   };
@@ -38,19 +40,32 @@ export default function App() {
       title: title,
       desc: desc,
     };
-    console.log("Adding : ", myToDo);
+    // console.log("Adding : ", myToDo);  //Testing
     setTodos([...todos, myToDo]);
     // const [todos, setTodos] = useState(initTodo);
   };
 
   return (
-    <>
+    <Router>
       <div className="max-w-7xl mx-auto">
-        <Header title="Todos List" searchBar={true} />
-        <AddToDo addToDo={addToDo} />
-        <Todos todos={todos} onDelete={deleteTodo} />
-        <Footer />
+        <Header title="Todos List" searchBar={true} />{" "}
+        {/* This should always return  */}
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              // Only routes in "/"
+              <>
+                <AddToDo addToDo={addToDo} />
+                <Todos todos={todos} onDelete={deleteTodo} />
+              </>
+            }
+          />
+          <Route exact path="/about" element={<About /> } />
+        </Routes>
+        <Footer /> {/* This should always return  */}
       </div>
-    </>
+    </Router>
   );
 }
