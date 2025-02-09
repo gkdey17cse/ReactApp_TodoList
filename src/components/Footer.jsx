@@ -1,17 +1,20 @@
 import React from "react";
+
 function Footer() {
   let footerStyle = {
-    position:"absolute",
-    top: "100vh", // Changed from "top: 100vh"
-    backgroundColor: "black",
-    color: "white",
+    position: "fixed", 
+    left: 0,
+    bottom: 0,
+    width: "100%", 
     textAlign: "center",
     padding: "10px",
   };
 
   return (
     <>
-      <div className="mx-auto w-full"  style={footerStyle}>Copyright &copy; Todoslist</div>
+      <div style={footerStyle} className="bg-slate-200">
+        Copyright &copy; TodosList
+      </div>
     </>
   );
 }

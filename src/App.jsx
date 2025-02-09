@@ -45,7 +45,7 @@ export default function App() {
 
   return (
     <>
-      <div className="container">
+      <div className="max-w-7xl mx-auto">
         <Header title="Todos List" searchBar={true} />
         <AddToDo addToDo={addToDo} />
         <Todos todos={todos} onDelete={deleteTodo} />
