@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import React, { useState, useEffect } from "react";
 import About from "./components/About";
 import AddToDo from "./components/AddToDo";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function App() {
   const [todos, setTodos] = useState(() => {
