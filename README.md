@@ -1,6 +1,6 @@
 # 📝 My Todo List
 
-This is a simple React-based Todo List project built as part of my React learning journey by following [CodeWithHarry's YouTube tutorial](https://youtu.be/RGKi6LSPDLU?si=_Fa9HXeQ80t8hqT8).
+This is a simple React-based Todo List project built as part of my React learning journey by following [CodeWithHarry's YouTube tutorial](https://youtu.be/RGKi6LSPDLU?si=_Fa9HXeQ80t8hqT8). It is currently hosted at - https://gkdey17cse.github.io/ReactApp_TodoList/ 
 
 ---
 
